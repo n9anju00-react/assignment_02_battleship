@@ -33,8 +33,15 @@ export default function Gameboard() {
       setIsActive(false);
     }
     if (nrbOfBombsLeft === 0) {
-      setStatus('Game over. Ships remaining.');
-      setIsActive(false);
+      // jos sattuukin viimeisellä pommilla voittamaan pelin
+      if (nbrOfShipsLeft === 0) {
+        setStatus('You sinked all ships.');
+        setIsActive(false);
+      }
+      else {
+        setStatus('Game over. Ships remaining.');
+        setIsActive(false);
+      }
     }
     if (time === 0) {
       setStatus('Timeout. Ships remaining.');
